@@ -243,6 +243,13 @@ function loaddata(poolno) {
                          
                                 $('.' + value.returnValues._user + ' td:nth-child(3)').html(result1.id);
                                 $('.' + value.returnValues._user + ' td:nth-child(4)').html(result1.payment_received);
+                                myContractInstance.methods.pool9users(account).call().then(function (result2) {
+                                    $('.usersequence').html(result2.id);
+                                })
+                                myContractInstance.methods.pool9activeUserID().call().then(function (result3) {
+                                $('.currentsequence').html(result3);
+                                })
+
                           
                         });
                     }
@@ -276,6 +283,13 @@ function loaddata(poolno) {
 <!-- App-content opened -->
 <div class="app-content">
     <div class="section">
+
+        <div class="col-xl-12 col-lg-12 col-md-12">
+            <span>Your Sequence = </span>
+            <span class = "usersequence"> </span><br>
+            <span>Current Sequence = </span>
+            <span class = "currentsequence"> </span>
+        </div>
 
 
         <!-- row opened -->
